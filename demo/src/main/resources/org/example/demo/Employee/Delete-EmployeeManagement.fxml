@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#0c74ac" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Employee" textAlignment="CENTER" wrappingWidth="863.0">
+         <font>
+            <Font name="Abril Fatface" size="38.0" />
+         </font>
+      </Text>
+      <Button fx:id="deleteBttn" layoutX="219.0" layoutY="475.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="54.0" prefWidth="131.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: #0c74ac; -fx-border-radius: 15px;" text="Delete" textFill="#0c74ac">
+         <font>
+            <Font name="Bonkers" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="clearBttn" layoutX="525.0" layoutY="475.0" mnemonicParsing="false" onAction="#onClear" prefHeight="54.0" prefWidth="131.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: #0c74ac; -fx-border-radius: 15px;" text="Clear" textFill="#0c74ac">
+         <font>
+            <Font name="Bonkers" size="25.0" />
+         </font>
+      </Button>
+      <Line endX="799.7000122070312" endY="-1.0013580322265625E-5" layoutX="56.0" layoutY="5.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#0c74ac" strokeWidth="15.0" />
+      <Line endX="793.5934448242188" layoutX="63.0" layoutY="556.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#0c74ac" strokeWidth="15.0" />
+      <Text fill="#c40707" layoutX="334.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" wrappingWidth="194.99999999999977">
+         <font>
+            <Font name="Abril Fatface" size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="employeeID_Text" layoutX="334.0" layoutY="265.0" prefHeight="25.0" prefWidth="195.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button fx:id="backBttn1" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
+         <font>
+            <Font name="Bonkers" size="32.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

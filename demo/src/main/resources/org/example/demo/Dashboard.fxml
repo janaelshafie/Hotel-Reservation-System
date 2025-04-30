@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.Controller.DashBoardController">
+    <children>
+        <Text fill="#c40707" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Reservation System" textAlignment="CENTER" wrappingWidth="863.0">
+            <font>
+                <Font name="Abril Fatface" size="38.0" />
+            </font>
+        </Text>
+        <Button fx:id="guestManagBttn" layoutX="34.0" layoutY="169.0" mnemonicParsing="false" onAction="#onGuestManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Guest Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+            <font>
+                <Font name="Bonkers" size="20.0" />
+            </font>
+        </Button>
+        <Line endX="799.7000122070312" endY="-1.0013580322265625E-5" layoutX="56.0" layoutY="5.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#c40707" strokeWidth="15.0" />
+        <Line endX="793.5934448242188" layoutX="63.0" layoutY="556.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#c40707" strokeWidth="15.0" />
+      <Button fx:id="employeeManagBttn" layoutX="246.0" layoutY="169.0" mnemonicParsing="false" onAction="#onEmployeeManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Employee Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="departmentManagBttn" layoutX="454.0" layoutY="169.0" mnemonicParsing="false" onAction="#onDepartmentManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Department Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="paymentManagBttn" layoutX="664.0" layoutY="169.0" mnemonicParsing="false" onAction="#onPaymentManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Payment Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="reservationManagBttn" layoutX="664.0" layoutY="356.0" mnemonicParsing="false" onAction="#onReservationManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Reservation Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="roomManagBttn" layoutX="454.0" layoutY="356.0" mnemonicParsing="false" onAction="#onRoomManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Room Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="serviceManagBttn" layoutX="246.0" layoutY="356.0" mnemonicParsing="false" onAction="#onServiceManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Service Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="bookingManagBttn" layoutX="34.0" layoutY="356.0" mnemonicParsing="false" onAction="#onBookingManag" prefHeight="76.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: C40707; -fx-border-radius: 15px;" text="Booking Management" textAlignment="CENTER" textFill="#c40707" wrapText="true">
+         <font>
+            <Font name="Bonkers" size="20.0" />
+         </font>
+      </Button>
+    </children>
+</Pane>
