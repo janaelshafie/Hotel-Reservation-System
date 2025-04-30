@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.demo.Model.DepartmentModel;
 import org.example.demo.Model.GuestModel;
 import org.example.demo.Model.ServiceModel;
 
@@ -32,6 +33,7 @@ public class App extends Application {
     public static void main(String[] args) throws SQLException {
         GuestModel.connectToDatabase();
         ServiceModel.connectToDatabase();
+        DepartmentModel.connectToDatabase();
         launch(args);
     }
 }

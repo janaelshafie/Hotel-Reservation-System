@@ -48,6 +48,7 @@ public class DepartmentManagementController {
 
     @FXML
     void onViewDept(ActionEvent event) {
+        FXMLoader(viewDeptBttn , "/org/example/demo/Department/View-DepartmentManagement.fxml", "View Departments");
 
     }
 

@@ -1,4 +1,5 @@
-package org.example.demo.Controller.Service;
+package org.example.demo.Controller.Department;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,34 +8,38 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.example.demo.Model.ServiceModel;
+import org.example.demo.Model.DepartmentModel;
 
+import java.sql.SQLException;
 
-public class DeleteServiceController {
+public class DeleteDepartmentController {
     @FXML
-    private TextField serviceID_Text;
+    private TextField departmentID_Text;
     @FXML
     private Button backBttn;
+
     @FXML
     void onBack(ActionEvent event) {
-        FXMLoader(backBttn, "/org/example/demo/Service/ServiceManagement.fxml", "Service Management");
+        FXMLoader(backBttn, "/org/example/demo/Department/DepartmentManagement.fxml", "Department Management");
 
     }
     @FXML
     void onClear(ActionEvent event) {
-        serviceID_Text.clear();
+        departmentID_Text.clear();
     }
 
     @FXML
     void onDelete(ActionEvent event) {
-        String serviceID = serviceID_Text.getText();
+        String departmentID = departmentID_Text.getText();
         try {
-            ServiceModel.deleteService(serviceID);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Service deleted successfully!");
+            DepartmentModel.deleteDepartment(departmentID);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Department deleted successfully!");
             onClear(event);
         } catch (NumberFormatException e) {
-            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Service ID format.");
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Department ID format.");
             onClear(event);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }

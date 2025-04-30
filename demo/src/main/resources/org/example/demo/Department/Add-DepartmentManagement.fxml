@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.Controller.Department.AddDepartmentController">
    <children>
       <Text fill="#d903a7" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Department" textAlignment="CENTER" wrappingWidth="863.0">
          <font>
@@ -31,13 +31,13 @@
             <Font name="Abril Fatface" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="phoneNumber_Text" layoutX="51.0" layoutY="240.0" prefHeight="25.0" prefWidth="195.0" />
+      <TextField fx:id="name_Text" layoutX="51.0" layoutY="240.0" prefHeight="25.0" prefWidth="195.0" />
       <Text fill="#d903a7" layoutX="350.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="address_Text" layoutX="350.0" layoutY="237.0" prefHeight="25.0" prefWidth="493.0" />
+      <TextField fx:id="description_Text" layoutX="350.0" layoutY="237.0" prefHeight="25.0" prefWidth="493.0" />
       <Button fx:id="backBttn" layoutX="12.0" layoutY="37.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
          <font>
             <Font name="Bonkers" size="32.0" />

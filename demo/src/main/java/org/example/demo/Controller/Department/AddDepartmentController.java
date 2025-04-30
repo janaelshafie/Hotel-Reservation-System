@@ -1,65 +1,49 @@
-package org.example.demo.Controller.Service;
+package org.example.demo.Controller.Department;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
 import javafx.scene.control.Alert;
-import org.example.demo.Model.ServiceModel;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.example.demo.Model.DepartmentModel;
 
-public class AddServiceController {
+import java.sql.SQLException;
+
+public class AddDepartmentController {
 
     @FXML
     private TextField name_Text;
 
     @FXML
-    private TextField cateogry_Text;
-
-    @FXML
-    private TextField price_Text;
-
-    @FXML
     private TextField description_Text;
-
-    @FXML
-    private ComboBox<String> availability_ComboBox;
 
     @FXML
     private Button backBttn;
 
     @FXML
-    public void initialize() {
-        availability_ComboBox.getItems().addAll("Yes", "No");
-    }
-
-    @FXML
     void onBack(ActionEvent event) {
-        FXMLoader(backBttn, "/org/example/demo/Service/ServiceManagement.fxml", "Service Management");
+        FXMLoader(backBttn, "/org/example/demo/Department/DepartmentManagement.fxml", "Department Management");
     }
 
     @FXML
     void onClear(ActionEvent event) {
         name_Text.clear();
-        cateogry_Text.clear();
-        price_Text.clear();
         description_Text.clear();
-        availability_ComboBox.setValue(null);
-
     }
 
     @FXML
-    void onAdd(ActionEvent event) {
+    void onAdd(ActionEvent event) throws SQLException {
         String name = name_Text.getText();
-        String category = cateogry_Text.getText();
-        String price = price_Text.getText();
         String description = description_Text.getText();
-        String availability = availability_ComboBox.getValue();
 
-        ServiceModel.addService(name, category, description, price, availability);
-        showAlert(Alert.AlertType.INFORMATION, "Success", "Service added successfully");
+        DepartmentModel.addDepartment(name, description);
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Department added successfully");
         onClear(event);
     }
+
     void FXMLoader(Button button, String fxmldesign , String title){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmldesign));
@@ -80,5 +64,4 @@ public class AddServiceController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }
