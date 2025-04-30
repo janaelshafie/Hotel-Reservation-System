@@ -48,6 +48,7 @@ public class ServiceManagementController {
 
     @FXML
     void onViewServices(ActionEvent event) {
+        FXMLoader(viewServicesBttn , "/org/example/demo/Service/View-ServiceManagement.fxml", "View Services");
 
     }
 

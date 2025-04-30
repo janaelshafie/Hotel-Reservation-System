@@ -50,6 +50,7 @@ public class GuestManagementController {
 
     @FXML
     void onViewGuests(ActionEvent event) {
+        FXMLoader(viewGuestsBttn , "/org/example/demo/Guest/View-GuestManagement.fxml", "View Guests");
 
     }
 

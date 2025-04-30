@@ -5,6 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.example.demo.Model.GuestModel;
+import javafx.scene.control.Alert;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class UpdateGuestController {
 
@@ -68,7 +73,30 @@ public class UpdateGuestController {
 
     @FXML
     void onUpdate(ActionEvent event) {
+        String fName = firstName_Text.getText();
+        String lName = lastName_Text.getText();
+        String email = email_Text.getText();
+        String nationalID = nationalID_Text.getText();
+        String nationality = nationality_Text.getText();
+        LocalDate Date = birthDate_Date.getValue();
+        String gender = gender_ComboBox.getValue();
+        String phoneNumber = phoneNumber_Text.getText();
+        String address = address_Text.getText();
+        String guestID = guestID_Text.getText();
 
+        java.sql.Date birthDate = (Date != null) ? java.sql.Date.valueOf(Date) : null;
+
+        try{
+            GuestModel.updateGuest(fName ,lName, email, gender, nationality, nationalID, birthDate, phoneNumber, address, guestID);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Guest updated successfully");
+            onClear(event);
+        }
+        catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Guest ID format.");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     void FXMLoader(Button button, String fxmldesign , String title){
@@ -82,6 +110,14 @@ public class UpdateGuestController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 

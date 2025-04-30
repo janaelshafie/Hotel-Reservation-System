@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.Controller.Service.DeleteServiceController">
    <children>
       <Text fill="#0c910a" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Employee" textAlignment="CENTER" wrappingWidth="863.0">
          <font>
@@ -35,7 +35,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="backBttn1" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
+      <Button fx:id="backBttn" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
          <font>
             <Font name="Bonkers" size="32.0" />
          </font>

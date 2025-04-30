@@ -1,44 +1,41 @@
-package org.example.demo.Controller.Guest;
+package org.example.demo.Controller.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.demo.Model.GuestModel;
-import javafx.scene.control.Alert;
+import org.example.demo.Model.ServiceModel;
 
 import java.sql.SQLException;
 
-public class DeleteGuestController {
+public class DeleteServiceController {
     @FXML
-    private TextField guestID_Text;
+    private TextField serviceID_Text;
     @FXML
     private Button backBttn;
-
     @FXML
     void onBack(ActionEvent event) {
-        FXMLoader(backBttn, "/org/example/demo/Guest/GuestManagement.fxml", "Guest Management");
+        FXMLoader(backBttn, "/org/example/demo/Service/ServiceManagement.fxml", "Service Management");
 
     }
-
     @FXML
     void onClear(ActionEvent event) {
-        guestID_Text.clear();
+        serviceID_Text.clear();
     }
 
     @FXML
     void onDelete(ActionEvent event) {
-        String guestID = guestID_Text.getText();
+        String serviceID = serviceID_Text.getText();
         try {
-            GuestModel.deleteGuest(guestID);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Guest deleted successfully!");
+            ServiceModel.deleteService(serviceID);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Service deleted successfully!");
             onClear(event);
         } catch (NumberFormatException e) {
-            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Guest ID format.");
-            onClear(event);
-        } catch (SQLException e) {
-            showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Service ID format.");
             onClear(event);
         }
 
@@ -63,4 +60,6 @@ public class DeleteGuestController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 }

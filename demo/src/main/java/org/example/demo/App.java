@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.demo.Model.GuestModel;
+import org.example.demo.Model.ServiceModel;
 
 import java.sql.SQLException;
 
@@ -30,6 +31,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
         GuestModel.connectToDatabase();
+        ServiceModel.connectToDatabase();
         launch(args);
     }
 }
