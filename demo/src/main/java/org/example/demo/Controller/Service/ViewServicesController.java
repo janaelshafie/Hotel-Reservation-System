@@ -36,7 +36,16 @@ public class ViewServicesController {
     private TableColumn<ObservableList<String>, String> Description;
 
     public void onBack(ActionEvent event) {
-        FXMLoader(backBttn, "/org/example/demo/Service/ServiceManagement.fxml", "Service Management");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo/Service/ServiceManagement.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) backBttn.getScene().getWindow();
+            backBttn.getScene().setRoot(root);
+            stage.setTitle("Service Management");
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -65,16 +74,4 @@ public class ViewServicesController {
         alert.showAndWait();
     }
 
-    void FXMLoader(Button button, String fxmldesign , String title){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmldesign));
-            Parent root = loader.load();
-            Stage stage = (Stage) button.getScene().getWindow();
-            button.getScene().setRoot(root);
-            stage.setTitle(title);
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

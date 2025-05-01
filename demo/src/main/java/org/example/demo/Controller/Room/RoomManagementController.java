@@ -61,6 +61,7 @@ public class RoomManagementController {
 
     @FXML
     void onViewRooms(ActionEvent event) {
+        FXMLoader(viewRoomsBttn , "/org/example/demo/Room/ViewRoom-RoomManagement.fxml", "View Rooms");
 
     }
 
@@ -84,6 +85,7 @@ public class RoomManagementController {
 
     @FXML
     void onViewRoomTypes(ActionEvent event) {
+        FXMLoader(viewRoomTypeBttn , "/org/example/demo/Room/ViewRoomType-RoomManagement.fxml", "View Room Types");
 
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.demo.Model.DepartmentModel;
 import org.example.demo.Model.GuestModel;
+import org.example.demo.Model.RoomModel;
 import org.example.demo.Model.ServiceModel;
 
 import java.sql.SQLException;
@@ -34,6 +35,7 @@ public class App extends Application {
         GuestModel.connectToDatabase();
         ServiceModel.connectToDatabase();
         DepartmentModel.connectToDatabase();
+        RoomModel.connectToDatabase();
         launch(args);
     }
 }

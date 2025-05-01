@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="863.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.Controller.Room.DeleteRoomController">
    <children>
       <Text fill="#bc7e0b" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Room" textAlignment="CENTER" wrappingWidth="863.0">
          <font>
@@ -26,12 +26,12 @@
       </Button>
       <Line endX="799.7000122070312" endY="-1.0013580322265625E-5" layoutX="56.0" layoutY="5.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#bc7e0b" strokeWidth="15.0" />
       <Line endX="793.5934448242188" layoutX="63.0" layoutY="556.0" startX="-56.0000114440918" startY="-2.86102294921875E-6" stroke="#bc7e0b" strokeWidth="15.0" />
-      <Text fill="#c40707" layoutX="326.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number:" wrappingWidth="205.3999481201172">
+      <Text fill="#c40707" layoutX="326.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number:" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="25.0" />
          </font>
       </Text>
-      <TextField fx:id="number_Text" layoutX="324.0" layoutY="257.0" prefHeight="9.0" prefWidth="195.0">
+      <TextField fx:id="roomNumber_Text" layoutX="324.0" layoutY="257.0" prefHeight="9.0" prefWidth="195.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
