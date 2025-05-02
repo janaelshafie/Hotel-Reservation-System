@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.demo.Model.EmployeeModel;
+
+import java.sql.SQLException;
 
 public class DeleteEmployeeController {
 
@@ -17,6 +21,18 @@ public class DeleteEmployeeController {
 
     @FXML
     void onDelete(ActionEvent event) {
+        String employeeID = employeeID_Text.getText();
+        try {
+            EmployeeModel.deleteEmployee(employeeID);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Employee deleted successfully!");
+            onClear(event);
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Employee ID format.");
+            onClear(event);
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
+            onClear(event);
+        }
     }
 
     @FXML
@@ -39,6 +55,13 @@ public class DeleteEmployeeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

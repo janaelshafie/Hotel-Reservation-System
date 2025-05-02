@@ -18,8 +18,6 @@ public class BookingManagementController {
 
     @FXML private Button addOffers;
 
-    @FXML private Button updateOffers;
-
     @FXML private Button deleteOffers;
 
     @FXML private Button viewOffers;
@@ -67,12 +65,6 @@ public class BookingManagementController {
     @FXML
     void onAdd2(ActionEvent event) {
         FXMLoader(addOffers , "/org/example/demo/Booking/AddOffers.fxml", "Add Offers");
-
-    }
-
-    @FXML
-    void onUpdate2(ActionEvent event) {
-        FXMLoader(updateOffers , "/org/example/demo/Booking/UpdateOffers.fxml", "Update Offers");
 
     }
 

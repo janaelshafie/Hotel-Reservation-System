@@ -1,5 +1,6 @@
 package org.example.demo.Controller.Booking;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import org.example.demo.Model.BookingModel;
+
+import java.sql.SQLException;
 
 public class ViewServiceBookingController {
     @FXML private Button backBttn;
@@ -33,7 +37,18 @@ public class ViewServiceBookingController {
 
     @FXML
     public void initialize() {
+        try {
 
+            BookingID.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(0)));
+            GuestID.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(1)));
+            EmployeeID.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(2)));
+
+
+            ObservableList<ObservableList<String>> serviceBookings = BookingModel.getAllServiceBookings();
+            viewServiceBooking_Table.setItems(serviceBookings);
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
+        }
     }
 
 

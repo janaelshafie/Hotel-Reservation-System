@@ -87,7 +87,7 @@
                 <Font name="Bonkers" size="32.0" />
             </font>
         </Button>
-        <Text layoutX="20.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking ID:" wrappingWidth="205.3999481201172">
+        <Text layoutX="79.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest ID:" wrappingWidth="205.3999481201172">
             <font>
                 <Font name="Abril Fatface" size="18.0" />
             </font>
@@ -108,29 +108,7 @@
                 </LinearGradient>
             </fill>
         </Text>
-        <TextField fx:id="bookingID_Text" layoutX="19.0" layoutY="208.0" prefHeight="25.0" prefWidth="205.0" />
-        <Text layoutX="284.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest ID:" wrappingWidth="205.3999481201172">
-            <font>
-                <Font name="Abril Fatface" size="18.0" />
-            </font>
-            <fill>
-                <LinearGradient endX="1.0" endY="1.0" startX="0.48484846498027">
-                    <stops>
-                        <Stop>
-                            <color>
-                                <Color red="0.12156862765550613" green="0.4431372582912445" blue="0.3019607961177826" />
-                            </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="0.12156862765550613" green="0.4431372582912445" blue="0.3019607961177826" />
-                            </color>
-                        </Stop>
-                    </stops>
-                </LinearGradient>
-            </fill>
-        </Text>
-        <TextField fx:id="guestID_Text" layoutX="283.0" layoutY="208.0" prefHeight="25.0" prefWidth="205.0" />
+        <TextField fx:id="guestID_Text" layoutX="78.0" layoutY="211.0" prefHeight="25.0" prefWidth="205.0" />
         <TextField fx:id="employeeID_Text" layoutX="553.0" layoutY="208.0" prefHeight="25.0" prefWidth="205.0" />
     </children>
 </Pane>

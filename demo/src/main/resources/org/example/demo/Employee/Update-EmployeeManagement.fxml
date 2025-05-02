@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
@@ -16,7 +15,7 @@
             <Font name="Abril Fatface" size="38.0" />
          </font>
       </Text>
-      <Button fx:id="updateBttn" layoutX="219.0" layoutY="475.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="54.0" prefWidth="131.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: #0c74ac; -fx-border-radius: 15px;" text="Update" textFill="#0c74ac">
+      <Button fx:id="updateBttn" layoutX="219.0" layoutY="475.0" mnemonicParsing="false" onAction="#onUpdate" prefHeight="54.0" prefWidth="131.0" style="-fx-background-color: white; -fx-border-width: 3px; -fx-border-color: #0c74ac; -fx-border-radius: 15px;" text="Update" textFill="#0c74ac">
          <font>
             <Font name="Bonkers" size="25.0" />
          </font>
@@ -69,23 +68,11 @@
             <Font name="Abril Fatface" size="18.0" />
          </font>
       </Text>
-      <MenuButton fx:id="gender_Menu" layoutX="624.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="195.0" text="Gender">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
-      <Text fill="#0c74ac" layoutX="332.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department " wrappingWidth="205.3999481201172">
+      <Text fill="#c40707" layoutX="332.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department ID:" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="18.0" />
          </font>
       </Text>
-      <MenuButton fx:id="department_Menu" layoutX="330.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="195.0" text="Department">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
       <Text fill="#c40707" layoutX="624.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="18.0" />
@@ -97,5 +84,7 @@
             <Font name="Bonkers" size="32.0" />
          </font>
       </Button>
+      <ComboBox fx:id="gender_ComboBox" layoutX="624.0" layoutY="240.0" prefHeight="25.0" prefWidth="195.0" promptText="Gender" />
+      <TextField fx:id="departmentID_Text" layoutX="332.0" layoutY="334.0" prefHeight="25.0" prefWidth="195.0" />
    </children>
 </Pane>

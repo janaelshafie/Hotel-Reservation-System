@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
@@ -44,24 +43,12 @@
             <Font name="Bonkers" size="32.0" />
          </font>
       </Button>
-      <MenuButton fx:id="status_Menu" layoutX="20.0" layoutY="212.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Status">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
       <DatePicker fx:id="date_Date" layoutX="296.0" layoutY="209.0" prefHeight="25.0" prefWidth="205.0" />
       <Text layoutX="575.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="18.0" />
          </font>
       </Text>
-      <MenuButton fx:id="method_Menu" layoutX="575.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Method">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
       <Text layoutX="20.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="205.3999481201172">
          <font>
             <Font name="Abril Fatface" size="18.0" />
@@ -80,5 +67,7 @@
          </font>
       </Text>
       <TextField fx:id="guestID_Text" layoutX="573.0" layoutY="318.0" prefHeight="25.0" prefWidth="205.0" />
+      <ComboBox fx:id="status_ComboBox" layoutX="20.0" layoutY="209.0" prefHeight="25.0" prefWidth="205.0" promptText="Status" />
+      <ComboBox fx:id="method_ComboBox" layoutX="574.0" layoutY="209.0" prefHeight="25.0" prefWidth="205.0" promptText="Method" />
    </children>
 </Pane>

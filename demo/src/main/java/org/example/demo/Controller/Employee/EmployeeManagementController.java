@@ -46,6 +46,7 @@ public class EmployeeManagementController {
 
     @FXML
     void onViewEmployees(ActionEvent event) {
+        FXMLoader(viewEmployeesBttn , "/org/example/demo/Employee/View-EmployeeManagement.fxml", "Delete Employee");
 
     }
 

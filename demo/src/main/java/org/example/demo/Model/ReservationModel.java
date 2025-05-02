@@ -25,57 +25,95 @@ public class ReservationModel {
         }
     }
 
-    public static void addReservation(String status, java.sql.Date checkIn, java.sql.Date checkOut, String roomNo, String employeeId, String guestId, String paymentId, String totalPrice) throws SQLException{
+    public static void addReservation(String status, java.sql.Date checkIn, java.sql.Date checkOut, String roomNo,
+                                            String employeeId, String guestId, String paymentId, String totalPrice) throws SQLException {
 
-        String sql = "INSERT INTO Reservation (Status, Check_In, Check_Out, Room_Number, Employee_Id, Guest_Id, Payment_Id, Total_Price) VALUES(?,?,?,?,?,?,?,?,?)";
+        // SQL queries
+        String insertSql = "INSERT INTO Reservation (Reserve_stat, Check_In, Check_Out, Room_Id, Employee_Id, Guest_Id, Pay_Id, Total_Price) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try(Connection con = DriverManager.getConnection(URL);
-            PreparedStatement ps = con.prepareStatement(sql)){
-            ps.setString(1, status);
-            ps.setString(2, checkIn.toString());
-            ps.setString(3, checkOut.toString());
-            ps.setString(4, roomNo);
-            ps.setString(5, employeeId);
-            ps.setString(6, guestId);
-            ps.setString(7, paymentId);
-            ps.setString(8, totalPrice);
+            // 1. Insert the reservation and get the generated Reservation_Id
+            try (PreparedStatement ps = con.prepareStatement(insertSql)) {
+                ps.setString(1, status);
+                ps.setDate(2, checkIn);
+                ps.setDate(3, checkOut);
+                ps.setInt(4, Integer.parseInt(roomNo));
 
-            ps.executeUpdate();
+                if (employeeId == null || employeeId.trim().isEmpty()) {
+                    ps.setNull(5, java.sql.Types.INTEGER);
+                } else {
+                    ps.setInt(5, Integer.parseInt(employeeId));
+                }
+
+                ps.setInt(6, Integer.parseInt(guestId));
+
+                if (paymentId == null || paymentId.trim().isEmpty()) {
+                    ps.setNull(7, java.sql.Types.INTEGER);
+                } else {
+                    ps.setInt(7, Integer.parseInt(paymentId));
+                }
+
+                ps.setDouble(8,Double.parseDouble(totalPrice));
+                ps.executeUpdate();
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
         }
-
     }
 
-    public static void updateReservation(String status, java.sql.Date checkIn, java.sql.Date checkOut, String roomNo, String employeeId, String guestId, String paymentId, String reservationId, String totalPrice) throws SQLException{
+    public static void updateReservation(String status, java.sql.Date checkIn, java.sql.Date checkOut, String roomNo,
+                                               String employeeId, String guestId, String paymentId, String reservationId, String totalPrice) throws SQLException {
 
         StringBuilder sql = new StringBuilder("UPDATE Reservation SET ");
         List<Object> params = new ArrayList<>();
 
-        sql.append("Status=? ");
-        params.add(status);
+        if (status != null && !status.isEmpty()) {
+            sql.append("Reserve_stat=?, ");
+            params.add(status);
+        }
 
-        sql.append(", Check_In=? ");
-        params.add(checkIn.toString());
+        if (totalPrice != null && !totalPrice.isEmpty()) {
+            sql.append("Total_Price=?, ");
+            params.add(totalPrice);
+        }
 
-        sql.append(", Check_Out=? ");
-        params.add(checkOut.toString());
+        if (checkIn != null) {
+            sql.append("Check_IN=?, ");
+            params.add(checkIn);
+        }
 
-        sql.append(", Room_Number=? ");
-        params.add(roomNo);
+        if (checkOut != null) {
+            sql.append("Check_Out=?, ");
+            params.add(checkOut);
+        }
 
-        sql.append(", Employee_Id=? ");
-        params.add(employeeId);
+        if (roomNo != null && !roomNo.isEmpty()) {
+            int roomNum = Integer.parseInt(roomNo);
+            sql.append("Room_Id=?, ");
+            params.add(roomNum);
+        }
 
-        sql.append(", Guest_Id=? ");
-        params.add(guestId);
+        if (employeeId != null && !employeeId.isEmpty()) {
+            sql.append("Employee_Id=?, ");
+            params.add(Integer.parseInt(employeeId));
+        }
 
-        sql.append(", Payment_Id=? ");
-        params.add(paymentId);
+        if (guestId != null && !guestId.isEmpty()) {
+            sql.append("Guest_Id=?, ");
+            params.add(Integer.parseInt(guestId));
+        }
 
-        sql.append(", Reservation_Id=? ");
-        params.add(reservationId);
+        if (paymentId != null && !paymentId.isEmpty()) {
+            sql.append("Pay_Id=?, ");
+            params.add(Integer.parseInt(paymentId));
+        }
 
-        sql.append(", Total_Price=? ");
-        params.add(totalPrice);
+        if (params.isEmpty()) {
+            throw new IllegalArgumentException("No fields provided to update.");
+        }
+
+        sql.setLength(sql.length() - 2); // Remove last comma
+        sql.append(" WHERE Reserve_Id = ?");
+        int reserveID = Integer.parseInt(reservationId);
+        params.add(reserveID);
 
         try (Connection con = DriverManager.getConnection(URL);
              PreparedStatement ps = con.prepareStatement(sql.toString())) {
@@ -86,15 +124,16 @@ public class ReservationModel {
 
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected == 0) {
-                throw new SQLException("No Reservation found with ID: " + reservationId);
+                throw new SQLException("No reservation found with ID: " + reservationId);
             }
-        }
 
+        }
     }
+
 
     public static void deleteReservation(String reservationId) throws SQLException{
 
-        String sql = "DELETE FROM Reservation WHERE Reservation_Id = ?";
+        String sql = "DELETE FROM Reservation WHERE Reserve_Id = ?";
         try (Connection con = DriverManager.getConnection(URL);
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, reservationId);
@@ -115,14 +154,15 @@ public class ReservationModel {
 
             while (rs.next()) {
                 ObservableList<String> row = FXCollections.observableArrayList();
-                row.add(rs.getString("Status"));
-                row.add(rs.getString("Check_In"));
+                row.add(rs.getString("Reserve_Id"));
+                row.add(rs.getString("Reserve_stat"));
+                row.add(rs.getString("Total_Price"));
+                row.add(rs.getString("Check_IN"));
                 row.add(rs.getString("Check_Out"));
-                row.add(rs.getString("Room_Number"));
-                row.add(rs.getString("Employee_Id"));
+                row.add(rs.getString("Room_Id"));
                 row.add(rs.getString("Guest_Id"));
-                row.add(rs.getString("Payment_Id"));
-                row.add(rs.getString("Reservation_Id"));
+                row.add(rs.getString("Pay_Id"));
+                row.add(rs.getString("Employee_Id"));
                 reservList.add(row);
             }
         }

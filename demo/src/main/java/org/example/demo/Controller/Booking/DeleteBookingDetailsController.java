@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.demo.Model.BookingModel;
+
+import java.sql.SQLException;
 
 public class DeleteBookingDetailsController {
     @FXML TextField bookingID_Text;
@@ -33,8 +37,17 @@ public class DeleteBookingDetailsController {
     }
 
     @FXML
-    void onDelete(ActionEvent event) {
+    void onDelete(ActionEvent event) throws SQLException {
+        String bookingID = bookingID_Text.getText();
+        String guestID = guestID_Text.getText();
 
+        BookingModel.deleteBookingDetails(bookingID , guestID);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Booking Details deleted successfully");
+        alert.showAndWait();
+        onClear(event);
     }
 
 

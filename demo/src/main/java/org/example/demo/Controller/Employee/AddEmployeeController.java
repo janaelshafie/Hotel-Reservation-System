@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.example.demo.Model.EmployeeModel;
+
+import java.sql.SQLException;
 
 public class AddEmployeeController {
 
@@ -28,30 +31,34 @@ public class AddEmployeeController {
     private TextField salary_Text;
 
     @FXML
-    private MenuButton gender_Menu;
+    private ComboBox<String> gender_ComboBox;
 
     @FXML
-    private MenuButton department_Menu;
-
-    @FXML
-    private Button addBttn;
-
-    @FXML
-    private Button clearBttn;
+    private TextField departmentID_Text;
 
     @FXML
     private Button backBttn;
 
     @FXML
-    void onAdd(ActionEvent event) {
+    void initialize() {
+
+        gender_ComboBox.getItems().setAll("Male", "Female");
+    }
+
+    @FXML
+    void onAdd(ActionEvent event) throws SQLException {
         String firstName = firstName_Text.getText();
         String lastName = lastName_Text.getText();
         String email = email_Text.getText();
         String phone = phoneNum_Text.getText();
         String jobTitle = jobTitle_Text.getText();
         String salary = salary_Text.getText();
-        String gender = gender_Menu.getText();
-        String department = department_Menu.getText();
+        String gender = gender_ComboBox.getValue();
+        String departmentID = departmentID_Text.getText();
+
+        EmployeeModel.addEmployee(firstName,lastName,email,phone,jobTitle,gender,salary,departmentID);
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Employee added successfully");
+        onClear(event);
     }
 
     @FXML
@@ -62,8 +69,8 @@ public class AddEmployeeController {
         phoneNum_Text.clear();
         jobTitle_Text.clear();
         salary_Text.clear();
-        gender_Menu.setText("Gender");
-        department_Menu.setText("Department");
+        gender_ComboBox.setValue("Gender");
+        departmentID_Text.clear();
     }
 
     @FXML
@@ -81,5 +88,12 @@ public class AddEmployeeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

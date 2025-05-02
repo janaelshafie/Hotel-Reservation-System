@@ -35,7 +35,7 @@ public class GuestModel {
             ps.setString(3, email);
             ps.setString(4, gender);
             ps.setString(5, nationality);
-            ps.setInt(6, Integer.parseInt(SSN));
+            ps.setString(6, SSN);
             ps.setDate(7, birthdate);
             ps.setString(8, phonenumber);
             ps.setString(9, address);
@@ -69,9 +69,8 @@ public class GuestModel {
             params.add(nationality);
         }
         if (SSN != null && !SSN.isEmpty()) {
-            int ssn = Integer.parseInt(SSN);
             sql.append("SSN = ?, ");
-            params.add(ssn);
+            params.add(SSN);
         }
         if (birthdate != null) {
             sql.append("Birth_Date = ?, ");

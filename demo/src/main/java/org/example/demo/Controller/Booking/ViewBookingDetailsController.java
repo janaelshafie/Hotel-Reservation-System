@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import org.example.demo.Model.BookingModel;
 
 import java.sql.SQLException;
 
@@ -37,7 +38,19 @@ public class ViewBookingDetailsController {
 
     @FXML
     public void initialize() {
+        try {
 
+            BookingID.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(0)));
+            GuestID.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(1)));
+            DateTime.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(2)));
+            TotalPrice.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().get(3)));
+
+
+            ObservableList<ObservableList<String>> bookingDetails = BookingModel.getAllBookingDetails();
+            viewBookingDetails_Table.setItems(bookingDetails);
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
+        }
     }
 
 

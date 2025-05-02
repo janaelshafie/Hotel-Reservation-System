@@ -48,6 +48,7 @@ public class PaymentManagementController {
 
     @FXML
     void onViewPays(ActionEvent event) {
+        FXMLoader(viewPaysBttn , "/org/example/demo/Payment/View-PaymentManagement.fxml", "View Payment");
 
     }
 

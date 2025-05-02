@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.demo.Model.BookingModel;
+
+import java.sql.SQLException;
 
 public class UpdateServiceBookingController {
     @FXML private TextField bookingID_Text;
@@ -34,7 +38,17 @@ public class UpdateServiceBookingController {
         employeeID_Text.clear();
     }
     @FXML
-    void onUpdate(ActionEvent event) {
+    void onUpdate(ActionEvent event) throws SQLException {
+        String bookingID = bookingID_Text.getText();
+        String guestID = guestID_Text.getText();
+        String employeeID = employeeID_Text.getText();
 
+        BookingModel.updateServiceBooking(bookingID,guestID,employeeID);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Service Booking updated successfully");
+        alert.showAndWait();
+        onClear(event);
     }
 }

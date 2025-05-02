@@ -4,17 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.demo.Model.BookingModel;
+
+import java.sql.SQLException;
 
 public class UpdateBookingDetailsController {
     @FXML
     TextField bookingID_Text;
     @FXML TextField guestID_Text;
     @FXML TextField dateTime_Text;
-    @FXML TextArea totalPrice_TextArea;
+    @FXML TextField totalPrice_Text;
     @FXML Button backBttn;
 
     @FXML
@@ -32,8 +35,19 @@ public class UpdateBookingDetailsController {
     }
 
     @FXML
-    void onUpdate(ActionEvent event) {
+    void onUpdate(ActionEvent event) throws SQLException {
+        String bookingID = bookingID_Text.getText();
+        String guestID = guestID_Text.getText();
+        String dateTime = dateTime_Text.getText();
+        String totalPrice = totalPrice_Text.getText();
 
+        BookingModel.updateBookingDetails(bookingID , guestID , dateTime , totalPrice);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Booking Details updated successfully");
+        alert.showAndWait();
+        onClear(event);
     }
 
     @FXML
@@ -41,7 +55,7 @@ public class UpdateBookingDetailsController {
         bookingID_Text.clear();
         guestID_Text.clear();
         dateTime_Text.clear();
-        totalPrice_TextArea.clear();
+        totalPrice_Text.clear();
     }
 
 

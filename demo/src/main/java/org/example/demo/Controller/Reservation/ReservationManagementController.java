@@ -48,6 +48,7 @@ public class ReservationManagementController {
 
     @FXML
     void onViewReservations(ActionEvent event) {
+        FXMLoader(viewReservationsBttn , "/org/example/demo/Reservation/View-ReservationManagement.fxml", "Delete Reservation");
 
     }
 

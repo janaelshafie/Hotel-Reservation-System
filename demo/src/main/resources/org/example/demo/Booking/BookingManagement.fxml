@@ -96,12 +96,7 @@
             <Font name="Bonkers" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="updateOffers" layoutX="196.0" layoutY="275.0" mnemonicParsing="false" onAction="#onUpdate2" prefHeight="94.0" prefWidth="220.0" style="-fx-background-color: #1f714d;" text="Update Offers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="Bonkers" size="25.0" />
-         </font>
-      </Button>
-      <Button fx:id="deleteOffers" layoutX="428.0" layoutY="275.0" mnemonicParsing="false" onAction="#onDelete2" prefHeight="94.0" prefWidth="220.0" style="-fx-background-color: #1f714d;" text="Delete Offers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="deleteOffers" layoutX="328.0" layoutY="275.0" mnemonicParsing="false" onAction="#onDelete2" prefHeight="94.0" prefWidth="220.0" style="-fx-background-color: #1f714d;" text="Delete Offers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bonkers" size="25.0" />
          </font>

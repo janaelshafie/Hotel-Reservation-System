@@ -73,7 +73,7 @@
                 <Font name="Bonkers" size="32.0" />
             </font>
         </Button>
-        <TableView fx:id="viewOffers_Table" layoutX="4.0" layoutY="94.0" prefHeight="450.0" prefWidth="850.0">
+        <TableView fx:id="viewServiceBooking_Table" layoutX="4.0" layoutY="94.0" prefHeight="450.0" prefWidth="850.0">
             <columns>
                 <TableColumn fx:id="BookingID" prefWidth="284.79996633529663" text="Booking ID" />
                 <TableColumn fx:id="GuestID" prefWidth="292.00006103515625" text="Guest ID" />

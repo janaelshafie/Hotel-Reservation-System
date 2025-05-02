@@ -1,29 +1,36 @@
-package org.example.demo.Controller.Reservation;
+package org.example.demo.Controller.Payment;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.demo.Model.PaymentModel;
 import org.example.demo.Model.ReservationModel;
 
 import java.sql.SQLException;
 
-public class DeleteReservationController {
-
-    @FXML private TextField reservationID_Text;
+public class DeletePaymentController {
+    @FXML private TextField paymentID_Text;
     @FXML private Button backBttn;
 
     @FXML
+    public void onClear(ActionEvent event) {
+        paymentID_Text.clear();
+    }
+
+    @FXML
     public void onDelete(ActionEvent event) {
-        String reservationID = reservationID_Text.getText();
+        String paymentID = paymentID_Text.getText();
         try {
-            ReservationModel.deleteReservation(reservationID);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Reservation deleted successfully!");
+            PaymentModel.deletePayment(paymentID);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Payment deleted successfully!");
             onClear(event);
         } catch (NumberFormatException e) {
-            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Reservation ID format.");
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Invalid Payment ID format.");
             onClear(event);
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
@@ -32,13 +39,8 @@ public class DeleteReservationController {
     }
 
     @FXML
-    public void onClear(ActionEvent event) {
-        reservationID_Text.clear();
-    }
-
-    @FXML
     void onBack(ActionEvent event) {
-        loadFXML(backBttn, "/org/example/demo/Reservation/ReservationManagement.fxml", "Reservation Management");
+        loadFXML(backBttn, "/org/example/demo/Payment/PaymentManagement.fxml", "Payment Management");
     }
 
     private void loadFXML(Button button, String fxmlPath, String title) {
