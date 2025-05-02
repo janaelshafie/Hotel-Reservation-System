@@ -83,7 +83,16 @@ public class DashBoardController {
 
     @FXML
     void onBookingManag(ActionEvent event) {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo/Booking/BookingManagement.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) bookingManagBttn.getScene().getWindow();
+            bookingManagBttn.getScene().setRoot(root);
+            stage.setTitle("Booking Management");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

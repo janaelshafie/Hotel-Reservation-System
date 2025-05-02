@@ -12,7 +12,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import org.example.demo.Model.RoomModel;
-import org.example.demo.Model.ServiceModel;
 
 import java.sql.SQLException;
 

@@ -23,7 +23,7 @@ public class App extends Application {
 
             // Set the scene and stage
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Dashboard");  // Set the window title
+            primaryStage.setTitle("Dashboard"); 
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

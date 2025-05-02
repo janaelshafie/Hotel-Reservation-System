@@ -12,6 +12,7 @@ module org.example.demo {
     exports org.example.demo.Controller.Reservation;
     exports org.example.demo.Controller.Room;
     exports org.example.demo.Controller.Service;
+    exports org.example.demo.Controller.Booking;
     opens org.example.demo to javafx.fxml;
     opens org.example.demo.Controller to javafx.fxml;
     opens org.example.demo.Controller.Guest to javafx.fxml;
@@ -21,4 +22,5 @@ module org.example.demo {
     opens org.example.demo.Controller.Reservation to javafx.fxml;
     opens org.example.demo.Controller.Room to javafx.fxml;
     opens org.example.demo.Controller.Service to javafx.fxml;
+    opens org.example.demo.Controller.Booking to javafx.fxml;
 }

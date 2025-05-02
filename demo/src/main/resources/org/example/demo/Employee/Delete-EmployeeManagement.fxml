@@ -35,7 +35,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="backBttn1" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
+      <Button fx:id="backBttn" layoutX="3.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBack" prefHeight="60.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-width: 3px;" text="←" textFill="#c40707">
          <font>
             <Font name="Bonkers" size="32.0" />
          </font>
